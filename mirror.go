@@ -190,7 +190,7 @@ func (m *mirror) pullImage(tag string) error {
 
 	pullOptions := docker.PullImageOptions{
 		Tag:               tag,
-		InactivityTimeout: 1 * time.Minute,
+		InactivityTimeout: 10 * time.Minute,
 		OutputStream:      &logWriter{logger: m.log.WithField("docker_action", "pull")},
 	}
 	authConfig := docker.AuthConfiguration{}
@@ -251,7 +251,7 @@ func (m *mirror) pushImage(tag string) error {
 		Registry:          config.Target.Registry,
 		Tag:               tag,
 		OutputStream:      &logWriter{logger: m.log.WithField("docker_action", "push")},
-		InactivityTimeout: 1 * time.Minute,
+		InactivityTimeout: 10 * time.Minute,
 	}
 
 	var (

@@ -1,36 +1,90 @@
 ---
 target:
-  registry: ACCOUNT_ID.dkr.REGION.amazonaws.com
-  prefix: "hub/"
+  registry: 250312325083.dkr.ecr.us-east-1.amazonaws.com
+  prefix: "docker-mirror/"
 
 repositories:
-  - private_registry: "private-registry-name"
-    name: elasticsearch
-    max_tag_age: 4w
+  # # docker.io/datawire/aes:1.13.10
+  # - name: datawire/aes
+  #   max_tag_age: 1y
+  #   match_tag:
+  #       - "1.*"
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # # docker.io/datawire/tel2:2.4.4
+  # - name: datawire/tel2
+  #   max_tag_age: 1y
+  #   match_tag:
+  #       - "2.*"
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # # hashicorp/vault:1.7.0
+  # - name: hashicorp/vault
+  #   max_tag_age: 1y
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # hashicorp/vault-k8s:0.10.0
+  - name: hashicorp/vault-k8s
+    max_tag_age: 1y
     ignore_tag:
-      - "*-alpine"
+      - "*-*"
 
-  - name: redis
-    max_tag_age: 4w
-    match_tag:
-        - "3*"
-        - "4*"
-        - "latest"
-    ignore_tag:
-      - "*32bit*"
-      - "*alpine*"
-      - "*nanoserver*"
-      - "*windowsservercore*"
-
-  - name: yotpo/resec
-    max_tag_age: 4w
-
-  - name: jippi/hashi-ui
-    max_tag_age: 4w
-    match_tag:
-      - "v*"
-
-  - name: kubebuilder/kube-rbac-proxy
-    host: gcr.io
-    match_tag:
-      - "v*"
+  # # istio/proxyv2:1.11.2
+  # - name: istio/proxyv2
+  #   max_tag_age: 1y
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # # jtblin/kube2iam:0.10.9
+  # - name: jtblin/kube2iam
+  #   max_tag_age: 2y
+  #
+  # # newrelic/infrastructure-k8s:2.6.1
+  # - name: newrelic/infrastructure-k8s
+  #   max_tag_age: 1y
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # # nginxdemos/hello:plain-text
+  # - name: nginxdemos/hello
+  #   match_tag:
+  #     - "plain-text"
+  #
+  # # redis:5.0.1
+  # # redis:6.2.4-alpine
+  # - name: redis
+  #   match_tag:
+  #     - "5.0.1"
+  #     - "6.2.4-alpine"
+  #
+  # # docker.io/splunk/fluentd-hec:1.2.5
+  # - name: splunk/fluentd-hec
+  #   max_tag_age: 1y
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # # docker.io/splunk/kube-objects:1.1.5
+  # - name: splunk/kube-objects
+  #   max_tag_age: 1y
+  #
+  # # docker.io/weaveworks/scope:1.13.0
+  # - name: weaveworks/scope
+  #   max_tag_age: 3y
+  #   match_tag:
+  #     - "1.*"
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # # docker.io/weaveworks/weave-kube:2.8.1
+  # - name: weaveworks/weave-kube
+  #   max_tag_age: 1y
+  #   ignore_tag:
+  #     - "*-*"
+  #
+  # # wordpress:latest
+  # - name: wordpress
+  #   match_tag:
+  #     - "latest"
